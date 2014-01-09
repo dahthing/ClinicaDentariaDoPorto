@@ -1,0 +1,70 @@
+//
+// Accordions
+// --------------------------------------------------
+
+// Accordion
+// ------------------------- //
+
+.accordion {
+	margin: 0 0 10px;
+	position: relative;
+	.panel { 
+		border-color: @contentBorder; .rounded();
+		box-shadow: 0 3px 0 0 @contentShadow1;
+		-moz-box-shadow: 0 3px 0 0 @contentShadow1;
+		-webkit-box-shadow: 0 3px 0 0 @contentShadow1;
+		.rounded(5px,5px,5px,5px); 
+	}
+	.panel-body { font-size: 13px; background: @widgetBg; .rounded(0,0,5px,5px); border-color: @contentBorder; }
+	.panel-heading {
+		padding: 6px 15px;
+		#gradient > .vertical(@contentGradient1, @contentGradient2);
+		.panel-title { 
+			color: @bodyText;
+			text-decoration: none; 
+			line-height: 22px;
+		}
+	}
+	
+	&.accordion-2 {
+		border: 1px solid @contentBorder;
+		.panel-heading {
+			#reset #gradient();
+			border-bottom: 1px solid @contentBorder;
+			background: @widgetBg;
+			.rounded();
+			.glyphicons {
+				padding: 0;
+				i {
+					width: 30px;
+					display: block;
+					float: left;
+					&:before {
+						font-size: 20px;
+						color: #cccccc;
+						top: auto;
+						left: auto;
+						width: 30px;
+						position: relative;
+						text-align: center;
+					}
+				}
+			}
+		}
+		.panel-collapse.in {
+			border-bottom: 1px solid @contentBorder;
+		}
+		.panel {
+			border: none;
+			margin: 0;
+			.rounded();
+			&:last-child {
+				.panel-collapse.in { border-top: 1px solid @contentBorder; }
+			}
+		}
+		.panel-body { 
+			border: none;
+			.rounded();
+		}
+	}
+}

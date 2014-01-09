@@ -1,0 +1,60 @@
+// General
+// -------------------------
+
+.innerLR { padding: 0 @spacing; position: relative; }
+.innerTB { padding: @spacing 0; position: relative; }
+.innerAll { padding: @spacing; position: relative; }
+.innerL { padding-left: @spacing; position: relative; }
+.innerR { padding-right: @spacing; position: relative; }
+.innerT { padding-top: @spacing; position: relative; }
+.innerB { padding-bottom: @spacing; position: relative; }
+
+// Other Utilities
+// -------------------------
+
+.center { text-align: center !important; }
+.margin-bottom-none { margin-bottom: 0 !important; }
+.padding-bottom-none { padding-bottom: 0 !important; }
+.margin-none { margin: 0 !important; }
+.padding-none { padding: 0 !important; }
+.border-none { border: none !important; }
+.box-shadow-none { #reset .boxShadow(); }
+.padding-none-TB { padding-bottom: 0 !important; padding-top: 0 !important; }
+.relativeWrap { position: relative; }
+.text-primary { color: @primaryColor; }
+.text-regular { color: #444; }
+.text-uppercase { text-transform: uppercase; }
+.text-lowercase { text-transform: lowercase; }
+.text-faded { color: #d7d7d7 !important; }
+.text-large { font-size: 35px !important; line-height: 40px !important; }
+.text-xlarge { font-size: 50px; line-height: 50px; }
+.text-xxlarge { font-size: 70px; line-height: 70px; }
+.text-underline { text-decoration: underline; }
+.text-right { text-align: right !important; }
+.inline-block { display: inline-block !important; }
+.overflow-y-auto { position: relative; overflow: hidden; overflow-y: auto; }
+.overflow-hidden { position: relative; overflow: hidden; }
+.containerBg { background: @containerBg; }
+.whiteBg { background: #fff; }
+
+// Grid
+// -------------------------
+
+.row-merge {
+	position: relative;
+
+	/* Desktops */
+	@media (min-width: 992px) {
+		> [class*="col"]:not(:last-of-type) {
+			padding-right: 0;
+		}
+		> [class*="col"] ~ [class*="col"] {
+			padding-left: 0;
+			position: static;
+			&:after { position: absolute; top: 0; bottom: 0; width: 1px; background: @contentBorder; content: ""; }
+		}
+	}
+	
+	&.border-top, & ~ & { border-top: 1px solid @contentBorder; }
+	&.border-bottom { border-bottom: 1px solid @contentBorder; }
+}
